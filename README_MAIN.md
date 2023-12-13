@@ -1,9 +1,24 @@
 # MAIN branch for Anddd7
 
-Since the upstream repo is inactive, this fork will use <main> as the active branch.
+Since the upstream repo is inactive, this fork will use main as the active branch.
 
 - master: keep the same as upstream
 - main: my active branch
+
+## How to use
+
+build the package
+
+```sh
+poetry install
+poetry build
+```
+
+install as a local dependencies
+
+```sh
+pdm add <your-path>/diagrams-ext/dist/diagrams-0.23.5a0-py3-none-any.whl 
+```
 
 ## How to maintain
 

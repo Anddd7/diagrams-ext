@@ -4,3 +4,6 @@ demo:
 
 test:
 	python -m unittest tests/*.py -v  
+
+build: 
+	poetry build
