@@ -12,20 +12,20 @@ Since the upstream repo is inactive, this fork will use <main> as the active bra
 
 ## Features
 
-- cluster icon:
-  - <https://github.com/mingrammer/diagrams/pull/853>
-  - <https://github.com/mingrammer/diagrams/pull/439>
-  - <https://github.com/mingrammer/diagrams/pull/438>
-- overlapping cluster: <https://github.com/mingrammer/diagrams/issues/852>
-- edge attr: <https://github.com/mingrammer/diagrams/issues/560>
+- [x] cluster icon: <https://github.com/Anddd7/diagrams-ext/pull/1>
+  - ~~<https://github.com/mingrammer/diagrams/pull/853>~~
+  - ~~<https://github.com/mingrammer/diagrams/pull/439>~~
+  - ~~<https://github.com/mingrammer/diagrams/pull/438>~~
+- [ ] overlapping cluster: <https://github.com/mingrammer/diagrams/issues/852>
+- [ ] edge attr: <https://github.com/mingrammer/diagrams/issues/560>
 
-- read tfstate and generate graph
+- [ ] read tfstate and generate graph
   - <https://github.com/cycloidio/inframap>
   - <https://github.com/28mm/blast-radius>
 
-- read aws cli and generate graph
+- [ ] read aws cli and generate graph
   - <https://github.com/Cloud-Architects/cloudiscovery>
 
-- other terraform interesting tools
+- [ ] other terraform interesting tools
   - <https://github.com/cycloidio/terracost>
   - <https://pypi.org/project/python-hcl2/>
