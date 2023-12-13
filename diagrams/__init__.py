@@ -37,6 +37,10 @@ def setcluster(cluster: "Cluster"):
     __cluster.set(cluster)
 
 
+def geticonlabel(path: str = "", size: int = 24, label: str = ""):
+    return f'<<table border="0" width="100%"><tr><td fixedsize="true" width="{size}" height="{size}"><img src="{path}" /></td><td>{label}</td></tr></table>>'
+
+
 class Diagram:
     __directions = ("TB", "BT", "LR", "RL")
     __curvestyles = ("ortho", "curved")
@@ -221,25 +225,38 @@ class Cluster:
         self,
         label: str = "cluster",
         direction: str = "LR",
+        icon_node: "Node" = None,
+        icon_size: int = 24,
         graph_attr: Optional[dict] = None,
     ):
         """Cluster represents a cluster context.
 
         :param label: Cluster label.
         :param direction: Data flow direction. Default is 'left to right'.
+        :param icon: Icon of the cluster in top-left corner.
+        :param icon_size: Icon size.
         :param graph_attr: Provide graph_attr dot config attributes.
         """
         if graph_attr is None:
             graph_attr = {}
         self.label = label
         self.name = "cluster_" + self.label
+        self.icon_node = icon_node
+        self.icon_size = icon_size
 
         self.dot = Digraph(self.name)
 
         # Set attributes.
         for k, v in self._default_graph_attrs.items():
             self.dot.graph_attr[k] = v
-        self.dot.graph_attr["label"] = self.label
+
+        # Set icon from given node.
+        if self.icon_node:
+            _icon_label = geticonlabel(self.icon_node._load_icon(), self.icon_size, self.label)
+
+            self.dot.graph_attr["label"] = _icon_label
+        else:
+            self.dot.graph_attr["label"] = self.label
 
         if not self._validate_direction(direction):
             raise ValueError(f'"{direction}" is not a valid direction')

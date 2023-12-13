@@ -5,6 +5,7 @@ import pathlib
 
 from diagrams import Cluster, Diagram, Edge, Node
 from diagrams import getcluster, getdiagram, setcluster, setdiagram
+from diagrams.custom import Custom
 
 
 class DiagramTest(unittest.TestCase):
@@ -103,20 +104,19 @@ class DiagramTest(unittest.TestCase):
 
     def test_empty_name(self):
         """Check that providing an empty name don't crash, but save in a diagrams_image.xxx file."""
-        self.name = 'diagrams_image'
+        self.name = "diagrams_image"
         with Diagram(show=False):
             Node("node1")
         self.assertTrue(os.path.exists(f"{self.name}.png"))
-    
+
     def test_autolabel(self):
         with Diagram(name=os.path.join(self.name, "nodes_to_node"), show=False):
             node1 = Node("node1")
-            self.assertTrue(node1.label,"Node\nnode1")
-
+            self.assertTrue(node1.label, "Node\nnode1")
 
     def test_outformat_list(self):
         """Check that outformat render all the files from the list."""
-        self.name = 'diagrams_image'
+        self.name = "diagrams_image"
         with Diagram(show=False, outformat=["dot", "png"]):
             Node("node1")
         # both files must exist
@@ -168,6 +168,13 @@ class ClusterTest(unittest.TestCase):
                     self.assertEqual(c2, getcluster())
                 self.assertEqual(c1, getcluster())
             self.assertIsNone(getcluster())
+
+    def test_with_node_icon(self):
+        with Diagram(name=os.path.join(self.name, "with_node_icon"), show=False):
+            node = Custom("Public Domain Dedication", "resources/aws/network/vpc.png")
+            with Cluster(icon_node=node) as cluster:
+                self.assertIsNotNone(cluster)
+                self.assertTrue('<img src="resources/aws/network/vpc.png" />' in cluster.dot.graph_attr["label"])
 
     def test_node_not_in_diagram(self):
         # Node must be belong to a diagrams.
@@ -311,7 +318,6 @@ class ResourcesTest(unittest.TestCase):
         i.e. resources/<provider>/<type>/<image>, so check that this depth isn't
         exceeded.
         """
-        resources_dir = pathlib.Path(__file__).parent.parent / 'resources'
-        max_depth = max(os.path.relpath(d, resources_dir).count(os.sep) + 1
-                        for d, _, _ in os.walk(resources_dir))
+        resources_dir = pathlib.Path(__file__).parent.parent / "resources"
+        max_depth = max(os.path.relpath(d, resources_dir).count(os.sep) + 1 for d, _, _ in os.walk(resources_dir))
         self.assertLessEqual(max_depth, 2)
