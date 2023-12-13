@@ -3,6 +3,7 @@ import os
 import uuid
 from pathlib import Path
 from typing import Dict, List, Optional, Union
+from typing import Type, Union
 
 from graphviz import Digraph
 
@@ -225,7 +226,7 @@ class Cluster:
         self,
         label: str = "cluster",
         direction: str = "LR",
-        icon_node: "Node" = None,
+        icon_node: Union[Type["Node"], str] = None,
         icon_size: int = 24,
         graph_attr: Optional[dict] = None,
     ):
@@ -252,7 +253,18 @@ class Cluster:
 
         # Set icon from given node.
         if self.icon_node:
-            _icon_label = geticonlabel(self.icon_node._load_icon(), self.icon_size, self.label)
+            basedir = Path(os.path.abspath(os.path.dirname(__file__)))
+            _icon_node = self.icon_node
+            _icon_path = None
+
+            if isinstance(_icon_node, str):
+                _icon_path = os.path.join(basedir.parent, _icon_node)
+            elif _icon_node._icon_dir:
+                _icon_path = os.path.join(basedir.parent, _icon_node._icon_dir, _icon_node._icon)
+            else:
+                _icon_path = os.path.join(basedir.parent, _icon_node._icon)
+
+            _icon_label = geticonlabel(_icon_path, self.icon_size, self.label)
 
             self.dot.graph_attr["label"] = _icon_label
         else:

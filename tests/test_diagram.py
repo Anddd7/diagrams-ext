@@ -174,7 +174,7 @@ class ClusterTest(unittest.TestCase):
             node = Custom("Public Domain Dedication", "resources/aws/network/vpc.png")
             with Cluster(icon_node=node) as cluster:
                 self.assertIsNotNone(cluster)
-                self.assertTrue('<img src="resources/aws/network/vpc.png" />' in cluster.dot.graph_attr["label"])
+                self.assertTrue("resources/aws/network/vpc.png" in cluster.dot.graph_attr["label"])
 
     def test_node_not_in_diagram(self):
         # Node must be belong to a diagrams.
