@@ -45,3 +45,20 @@ pdm add <your-path>/diagrams-ext/dist/diagrams-0.23.5a0-py3-none-any.whl
 - [ ] other terraform interesting tools
   - <https://github.com/cycloidio/terracost>
   - <https://pypi.org/project/python-hcl2/>
+
+### Ecosystem
+
+#### [diagrams-patterns](https://github.com/Anddd7/diagrams-patterns)
+  
+- diagrams should only used for managing the basic shapes of the cloud components
+- but there are standard patterns usually used in cloud architecture, we don't need to draw them from scratch
+- e.g. VPC with public/private subnets, NAT gateway, etc.
+
+**diagrams-patterns** is a collection of patterns for diagrams that can be reused in different projects.
+
+#### [diagrams-exporters](https://github.com/Anddd7/diagrams-exporters)
+
+- in additional to the design phase, diagrams can aslo be used for analysis and monitoring the current architecture.
+- to do that, we need to export the 'metadata' from other sources, e.g. terraform, aws cli, etc. then generate the diagrams.
+
+**diagrams-exporters** export the metadata from existing tools, and generate the diagrams.
