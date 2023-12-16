@@ -104,6 +104,64 @@ class Users(_General):
     _icon = "users.png"
 
 
+class Cloud(_General):
+    _icon = "aws-cloud.png"
+
+
+class Account(_General):
+    _icon = "aws-account.png"
+
+
+class Region(_General):
+    _icon = "region.png"
+
+
 # Aliases
 
 OfficeBuilding = GenericOfficeBuilding
+
+# Cluster
+
+from diagrams import Cluster
+
+
+class ClusterCloud(Cluster):
+    _icon_node = Cloud
+    _graph_attr = {
+        "bgcolor": "white",
+        "pencolor": "#F78E04",
+    }
+
+    def __init__(
+        self,
+        label: str = "cloud",
+        direction: str = "LR",
+    ):
+        super().__init__(label, direction, icon_node=self._icon_node, graph_attr=self._graph_attr)
+
+
+class ClusterAccount(Cluster):
+    _icon_node = Account
+    _graph_attr = {
+        "bgcolor": "white",
+        "pencolor": "#CD2264",
+    }
+
+    def __init__(
+        self,
+        label: str = "account",
+        direction: str = "LR",
+    ):
+        super().__init__(label, direction, icon_node=self._icon_node, graph_attr=self._graph_attr)
+
+
+class ClusterRegion(Cluster):
+    _icon_node = Region
+    _graph_attr = {"bgcolor": "white", "pencolor": "#147EBA", "style": "rounded,dashed"}
+
+    def __init__(
+        self,
+        label: str = "region",
+        direction: str = "LR",
+    ):
+        super().__init__(label, direction, icon_node=self._icon_node, graph_attr=self._graph_attr)
