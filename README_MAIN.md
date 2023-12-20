@@ -31,20 +31,16 @@ pdm add <your-path>/diagrams-ext/dist/diagrams-0.23.5a0-py3-none-any.whl
   - ~~<https://github.com/mingrammer/diagrams/pull/853>~~
   - ~~<https://github.com/mingrammer/diagrams/pull/439>~~
   - ~~<https://github.com/mingrammer/diagrams/pull/438>~~
-- [ ] overlapping cluster: <https://github.com/mingrammer/diagrams/issues/852>
+- [x] overlapping cluster: implemented in diagrams-patterns
+  - ~~<https://github.com/mingrammer/diagrams/issues/852>~~
 - [x] edge attr: just input the attr as a string `**attrs: Dict`
   - ~~<https://github.com/mingrammer/diagrams/issues/560>~~
 
-- [ ] read tfstate and generate graph
-  - <https://github.com/cycloidio/inframap>
-  - <https://github.com/28mm/blast-radius>
+- [ ] reduce png size: <https://github.com/mingrammer/diagrams/pull/773>
 
-- [ ] read aws cli and generate graph
-  - <https://github.com/Cloud-Architects/cloudiscovery>
+- [ ] output diagram with auto filename: <https://github.com/mingrammer/diagrams/pull/736>
 
-- [ ] other terraform interesting tools
-  - <https://github.com/cycloidio/terracost>
-  - <https://pypi.org/project/python-hcl2/>
+- [ ] preserve the dot file: <https://github.com/mingrammer/diagrams/pull/182>
 
 ### Ecosystem
 
