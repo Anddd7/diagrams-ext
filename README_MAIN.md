@@ -31,16 +31,25 @@ pdm add <your-path>/diagrams-ext/dist/diagrams-0.23.5a0-py3-none-any.whl
   - ~~<https://github.com/mingrammer/diagrams/pull/853>~~
   - ~~<https://github.com/mingrammer/diagrams/pull/439>~~
   - ~~<https://github.com/mingrammer/diagrams/pull/438>~~
-- [x] overlapping cluster: implemented in diagrams-patterns
+- [x] overlapping cluster
+  - Calculate the position for clusters with neato layout, <https://github.com/Anddd7/diagrams-patterns>
   - ~~<https://github.com/mingrammer/diagrams/issues/852>~~
-- [x] edge attr: just input the attr as a string `**attrs: Dict`
+- [x] edge attr
+  - just input the attr in `**attrs: Dict`
   - ~~<https://github.com/mingrammer/diagrams/issues/560>~~
 
-- [ ] reduce png size: <https://github.com/mingrammer/diagrams/pull/773>
+- [ ] reduce png size
+  - <https://github.com/mingrammer/diagrams/pull/773>
 
-- [ ] output diagram with auto filename: <https://github.com/mingrammer/diagrams/pull/736>
+- [ ] output diagram with auto filename
+  - <https://github.com/mingrammer/diagrams/pull/736>
 
-- [ ] preserve the dot file: <https://github.com/mingrammer/diagrams/pull/182>
+- [ ] preserve the dot file
+  - <https://github.com/mingrammer/diagrams/pull/182>
+
+- [ ] support svg icon
+
+- [ ] support remote icon, override, cache
 
 ### Ecosystem
 

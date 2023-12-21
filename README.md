@@ -1,8 +1,8 @@
 ![diagrams logo](assets/img/diagrams.png)
 
-**This repo is an extension of diagrams, since the upstream is inactive, this fork will use main/ as the active branch.**
+**:warning: This repo is an extension of diagrams, since the upstream is inactive, this fork will use main/ as the active branch.**
 
-**Check [README_MAIN.md](./README_MAIN.md) for more details**
+**:warning: Check [README_MAIN.md](./README_MAIN.md) for more details**
 
 # Diagrams
 
