@@ -41,8 +41,6 @@ pdm add <your-path>/diagrams-ext/dist/diagrams-0.23.5a0-py3-none-any.whl
 - [x] preserve the dot file
   - ~~<https://github.com/mingrammer/diagrams/pull/182>~~
 
-- [ ] support svg icon
-
 - [x] support remote icon, override, cache
 
 ### Ecosystem
