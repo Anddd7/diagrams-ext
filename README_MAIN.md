@@ -5,32 +5,6 @@ Since the upstream repo is inactive, this fork will use main as the active branc
 - master: keep the same as upstream
 - main: my active branch
 
-## How to use
-
-:warning: This is a forked repo, so i rename the project as `diagrams-ext` to avoid conflict with upstream at `0.23.5-alpha4`
-
-So here you have 2 ways to import the package:
-
-- From pypi (recommended)
-
-  ```sh
-  poetry add diagrams-ext
-  ```
-
-- From local
-  - build the package
-
-  ```sh
-  poetry install
-  poetry build
-  ```
-
-  - install as a local dependencies
-
-  ```sh
-  pdm add <your-path>/diagrams-ext/dist/diagrams-0.23.5a4-py3-none-any.whl 
-  ```
-
 ## How to maintain
 
 - checkout from main branch, add feat/fix/..., create PR and merge to main

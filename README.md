@@ -1,6 +1,18 @@
 ![diagrams logo](assets/img/diagrams.png)
 
-**:warning: This repo is an extension of diagrams, since the upstream is inactive, this fork will use main/ as the active branch.**
+**:warning: This repo is an extension version for diagrams, since the upstream is inactive, this fork will use main/ as the active branch. I rename the project as `diagrams-ext` to avoid conflict with upstream since `0.23.5-alpha4`.**
+
+**Main Features:**
+
+- [🚀 feature: add cluster icon](https://github.com/Anddd7/diagrams-ext/pull/1)
+- [🚀 feature: support aws group resources](https://github.com/Anddd7/diagrams-ext/pull/2), moved to [diagrams-patterns](https://github.com/Anddd7/diagrams-patterns)
+- [🚀 feat: support remote icon](https://github.com/Anddd7/diagrams-ext/pull/3)
+
+**How to use:**
+
+```sh
+poertry add diagrams_ext
+```
 
 **:warning: Check [README_MAIN.md](./README_MAIN.md) for more details**
 
@@ -21,7 +33,7 @@ Diagrams lets you draw the cloud system architecture **in Python code**. It was 
 
 **Diagram as Code** also allows you to **track** the architecture diagram changes in any **version control** system.
 
->  NOTE: It does not control any actual cloud resources nor does it generate cloud formation or terraform code. It is just for drawing the cloud system architecture diagrams.
+> NOTE: It does not control any actual cloud resources nor does it generate cloud formation or terraform code. It is just for drawing the cloud system architecture diagrams.
 
 ## Providers
 
