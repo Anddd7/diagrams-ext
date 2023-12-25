@@ -94,6 +94,7 @@ class Diagram:
         graph_attr: Optional[dict] = None,
         node_attr: Optional[dict] = None,
         edge_attr: Optional[dict] = None,
+        preserve_graphviz_file: bool = False,
     ):
         """Diagram represents a global diagrams context.
 
@@ -123,6 +124,7 @@ class Diagram:
             filename = "_".join(self.name.split()).lower()
         self.filename = filename
         self.dot = Digraph(self.name, filename=self.filename, strict=strict)
+        self.preserve_graphviz_file = preserve_graphviz_file
 
         # Set attributes.
         for k, v in self._default_graph_attrs.items():
@@ -167,8 +169,9 @@ class Diagram:
 
     def __exit__(self, exc_type, exc_value, traceback):
         self.render()
-        # Remove the graphviz file leaving only the image.
-        os.remove(self.filename)
+        if not self.preserve_graphviz_file:
+            # Remove the graphviz file leaving only the image.
+            os.remove(self.filename)
         setdiagram(None)
 
     def _repr_png_(self):
