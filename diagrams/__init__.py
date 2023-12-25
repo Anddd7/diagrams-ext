@@ -1,6 +1,7 @@
 import contextvars
 import os
 import uuid
+import requests
 from pathlib import Path
 from typing import Dict, List, Optional, Union
 from typing import Type, Union
@@ -40,6 +41,30 @@ def setcluster(cluster: "Cluster"):
 
 def geticonlabel(path: str = "", size: int = 24, label: str = ""):
     return f'<<table border="0" width="100%"><tr><td fixedsize="true" width="{size}" height="{size}"><img src="{path}" /></td><td>{label}</td></tr></table>>'
+
+
+def loadicon(path: str, folder: str = ""):
+    if path.startswith("http"):
+        folder, path = downloadicon(path)
+        print(f"Downloaded {path} to {folder}")
+    basedir = Path(os.path.abspath(os.path.dirname(__file__)))
+    return os.path.join(basedir.parent, folder, path)
+
+
+def downloadicon(url: str):
+    filename = os.path.basename(url)
+    fullpath = os.path.join("dist", filename)
+
+    if os.path.exists(fullpath):
+        return "dist", filename
+
+    r = requests.get(url)
+    if r.status_code == 200:
+        with open(fullpath, "wb") as f:
+            f.write(r.content)
+        return "dist", filename
+    else:
+        raise Exception(f"Failed to download {url}")
 
 
 class Diagram:
@@ -324,7 +349,7 @@ class Node:
 
     _height = 1.9
 
-    def __init__(self, label: str = "", *, nodeid: str = None, **attrs: Dict):
+    def __init__(self, label: str = "", icon: str = None, *, nodeid: str = None, **attrs: Dict):
         """Node represents a system component.
 
         :param label: Node label.
@@ -332,6 +357,8 @@ class Node:
         # Generates an ID for identifying a node, unless specified
         self._id = nodeid or self._rand_id()
         self.label = label
+        if icon:
+            self._icon = icon
 
         # Node must be belong to a diagrams.
         self._diagram = getdiagram()
@@ -462,8 +489,7 @@ class Node:
         return uuid.uuid4().hex
 
     def _load_icon(self):
-        basedir = Path(os.path.abspath(os.path.dirname(__file__)))
-        return os.path.join(basedir.parent, self._icon_dir, self._icon)
+        return loadicon(self._icon, self._icon_dir)
 
 
 class Edge:

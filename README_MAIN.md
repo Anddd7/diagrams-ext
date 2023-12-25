@@ -43,7 +43,7 @@ pdm add <your-path>/diagrams-ext/dist/diagrams-0.23.5a0-py3-none-any.whl
 
 - [ ] support svg icon
 
-- [ ] support remote icon, override, cache
+- [x] support remote icon, override, cache
 
 ### Ecosystem
 
