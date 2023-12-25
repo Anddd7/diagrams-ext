@@ -2,7 +2,7 @@
 Custom provides the possibility of load an image to be presented as a node.
 """
 
-from diagrams import Node
+from diagrams import Node, loadicon
 
 
 class Custom(Node):
@@ -13,7 +13,7 @@ class Custom(Node):
     fontcolor = "#ffffff"
 
     def _load_icon(self):
-        return self._icon
+        return loadicon(self._icon)
 
     def __init__(self, label, icon_path, *args, **kwargs):
         self._icon = icon_path
