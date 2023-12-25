@@ -3,9 +3,9 @@ import shutil
 import unittest
 import pathlib
 
-from diagrams import Cluster, Diagram, Edge, Node
-from diagrams import getcluster, getdiagram, setcluster, setdiagram
-from diagrams.custom import Custom
+from diagrams_ext import Cluster, Diagram, Edge, Node
+from diagrams_ext import getcluster, getdiagram, setcluster, setdiagram
+from diagrams_ext.custom import Custom
 
 
 class DiagramTest(unittest.TestCase):

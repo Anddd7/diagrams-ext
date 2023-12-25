@@ -3,9 +3,9 @@ import random
 import string
 import unittest
 
-from diagrams import Diagram
-from diagrams import setcluster, setdiagram
-from diagrams.c4 import Person, Container, Database, System, SystemBoundary, Relationship
+from diagrams_ext import Diagram
+from diagrams_ext import setcluster, setdiagram
+from diagrams_ext.c4 import Person, Container, Database, System, SystemBoundary, Relationship
 
 
 class C4Test(unittest.TestCase):

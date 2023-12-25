@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "diagrams"
-version = "0.23.5-alpha3"
+name = "diagrams_ext"
+version = "0.23.5-alpha4"
 description = "Diagram as Code"
 license = "MIT"
-authors = ["mingrammer <mingrammer@gmail.com>"]
+authors = ["Anddd7 <anddd7@icloud.com>"]
 readme = "README.md"
 homepage = "https://diagrams.mingrammer.com"
-repository = "https://github.com/mingrammer/diagrams"
+repository = "https://github.com/Anddd7/diagrams"
 include = ["resources/**/*"]
 
 [tool.poetry.dependencies]
