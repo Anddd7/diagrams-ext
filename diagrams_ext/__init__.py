@@ -347,7 +347,7 @@ class Node:
     _icon_dir = None
     _icon = None
 
-    _height = 1.9
+    _height = 1.5 + 0.2
 
     def __init__(self, label: str = "", icon: str = None, *, nodeid: str = None, **attrs: Dict):
         """Node represents a system component.
@@ -376,11 +376,12 @@ class Node:
         # If a node has an icon, increase the height slightly to avoid
         # that label being spanned between icon image and white space.
         # Increase the height by the number of new lines included in the label.
-        padding = 0.4 * (self.label.count('\n'))
+        padding = 0.2 * (self.label.count('\n'))
         self._attrs = {
             "shape": "none",
             "height": str(self._height + padding),
             "image": self._load_icon(),
+            "imagepos": "tc",
         } if self._icon else {}
 
         # fmt: on
