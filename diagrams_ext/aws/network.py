@@ -168,6 +168,22 @@ class VpnGateway(_Network):
     _icon = "vpn-gateway.png"
 
 
+class TransitGatewayAttachment(_Network):
+    _icon = "tgw-attach.png"
+
+
+class TransitGatewayRouteTable(_Network):
+    _icon = "tgw-rtb.png"
+
+
+class Route53Resolver(_Network):
+    _icon = "route-53-resolver.png"
+
+
+class Route53ResolverRule(_Network):
+    _icon = "route-53-resolver-rule.png"
+
+
 # Aliases
 
 CF = CloudFront
