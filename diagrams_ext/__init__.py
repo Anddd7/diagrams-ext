@@ -45,24 +45,24 @@ def geticonlabel(path: str = "", size: int = 24, label: str = ""):
 
 def loadicon(path: str, folder: str = ""):
     if path.startswith("http"):
-        folder, path = downloadicon(path)
-        print(f"Downloaded {path} to {folder}")
+        fullpath = downloadicon(path)
+        return fullpath
     basedir = Path(os.path.abspath(os.path.dirname(__file__)))
     return os.path.join(basedir.parent, folder, path)
 
 
 def downloadicon(url: str):
-    filename = os.path.basename(url)
-    fullpath = os.path.join("dist", filename)
+    filename = "icon-" + os.path.basename(url)
+    fullpath = os.path.join(os.path.abspath(os.getcwd()), "dist", filename)
 
     if os.path.exists(fullpath):
-        return "dist", filename
+        return fullpath
 
     r = requests.get(url)
     if r.status_code == 200:
         with open(fullpath, "wb") as f:
             f.write(r.content)
-        return "dist", filename
+        return fullpath
     else:
         raise Exception(f"Failed to download {url}")
 
