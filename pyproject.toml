@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "diagrams_ext"
-version = "0.23.5-alpha5"
+version = "0.23.5-alpha6"
 description = "Diagram as Code"
 license = "MIT"
 authors = ["Anddd7 <anddd7@icloud.com>"]
