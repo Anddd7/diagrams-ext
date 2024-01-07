@@ -20,7 +20,7 @@ requests = "^2.31.0"
 pytest = "^7.3"
 pylint = "^2.7"
 rope = "^0.14.0"
-isort = "^4.3"
+isort = "^5.0.0"
 black = "^22.12.0"
 
 [tool.black]
