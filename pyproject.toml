@@ -18,7 +18,7 @@ requests = "^2.31.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.3"
-pylint = "^2.7"
+pylint = "^3.0.0"
 rope = "^0.14.0"
 isort = "^4.3"
 black = "^22.12.0"
